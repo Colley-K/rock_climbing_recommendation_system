@@ -23,20 +23,28 @@ There are three main types of recommenders used in practice today:
 
 3. **Hybrid Method:** Leverages both content & collaborative basded filtering. Typically when a new user comes into the recommender, the content-bsaed recommendation takes place. Then after interacting with the items a couple of times, the collaborative/ user based recommendation system will be utilized.
 
-I choose to work with a **user-based collaborative filtering system**. 
+**User-based collaborative filtering system**. 
 
 ![](./6_README_files/matrix_example.png)
 
-This made the most sense because half of the 4 million user-entered climbs had an explicit rating of how many stars the user would rate the climb. Unfortuntely, the data did not have very detailed "item features". Every rock climbing route had an area, a difficulty grade, and a style of climbing (roped or none). This would not have been enough data to provide an accurate content-based recommendations. In the future, I would love to experiment using a hybrid system to help solve the problem of the cold-start-threshold.
+I choose to work with a User-based collaborative filtering system. This made the most sense because half of the 4 million user-entered climbs had an explicit rating of how many stars the user would rate the climb. Unfortuntely, the data did not have very detailed "item features". Every rock climbing route had an area, a difficulty grade, and a style of climbing (roped or none). This would not have been enough data to provide an accurate content-based recommendation. In the future, I would love to experiment using a hybrid system to help solve the problem of the cold-start-threshold.
 
 ## 3. Data Cleaning 
 
 [Data Cleaning Report](https://drive.google.com/open?id=195wcooDtT2XhfpRXREWmLovm8XZPNymy)
 
+In a collaborative-filtering system there are only three columns that matter to apply the machine learning algorithms: the user, the item, and the explicit rating (see the example matrix above). I also had to clean & normalize all the reference information (location, difficulty grade, etc) to the route so that my user could get a userful and informative recommendation.
+
+* **Problem 1:** This dataset is all user-entered information. There are a couple drop down options, but for the most part the user is able to completely make-up, or list something incorrectly. **Solution:** after normalizing & cleaning all the columns, I created a three-tier groupby system that I could then take the mode of each entry and fill in the column with that mode. For example: a route listed 12 times had the country Greece associated with it 11 times, but one person listed it in the USA. By imputing multiple columns with the mode (after the three tiered groupby), I was able to increase the accuracy of my dataset
+
+* **Problem 2:** Being this is an international rock climbing website, the names of the rock climbing routes were differing based on if the user enters accent marks or not. **Solution:** normalize all names to the ascii standards. ascent[["name", "crag"]] = ascent[["name", "crag"]].apply(lambda x: x.str.normalize('NFKD').str.encode('ascii', errors='ignore').str.decode('utf-8'))
+
+* **Problem 3:** Spelling issues with the route name. For example: if there was a route named "red rocks canyon" it could be spelled "red rock", "red rocks", "red canyon" etc. **Solution:** at first I was hopeful and tried two different phonetic spelling algorithms (soundex & double metahpone). However, both of these proved to be too aggressive in their grouping and would group together sometimes 20 of the different routes as the same thing! My final solution was creating an accurate filter for route names. The logic being that if up to x users all entered that exact same route name the chances were good that it was an actual route spelled correctly. I played around with 4 different filters and kept these until I could test their prediction accruacy in the ML portion, and found the greatest prediction accuracy came from the dataset that filtered out any routes occuring less than 6 times.
+
 ## 4. EDA
 
 Star Distributions:
-
+![](./6_README_files/star_count.png)
 
 
 
