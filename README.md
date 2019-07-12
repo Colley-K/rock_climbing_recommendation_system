@@ -57,9 +57,10 @@ I chose to work with the Python [surprise library scikit] (http://surpriselib.co
 
 ![](./6_README_files/prediction.png)
 
-**NOTE:** I choose RMSE as the accuracy metric over mean absolute error(MAE) because since the errors are squared before they are averaged, the RMSE gives a relatively high weight to large errors. Thus, the RMSE is useful when large errors are undesirable. The smaller the RMSE, the more accurate the prediction because RMSE takes the square root of the residual errors of the line of best fit.
+**NOTE:** I choose RMSE as the accuracy metric over mean absolute error(MAE) because the errors are squared before they are averaged which gives the RMSE a higher weight to large errors. Thus, the RMSE is useful when large errors are undesirable. The smaller the RMSE, the more accurate the prediction because the RMSE takes the square root of the residual errors of the line of best fit.
 
-**WINNER: SVD++ Algorithm**: this is an improved version of the SVD alogorithm that Simon Funk popularized in the million dollar Netflix competition which also takes into account implicit ratings (yj). Using stochastic gradient descent (SGD), parameters are learned using the regularized squared error objective.
+**WINNER: SVD++ Algorithm**
+This algorithm is an improved version of the SVD algorithm that Simon Funk popularized in the million dollar Netflix competition that also takes into account implicit ratings (yj). Using stochastic gradient descent (SGD), parameters are learned using the regularized squared error objective.
 
 ![](./6_README_files/formula.png)
 
