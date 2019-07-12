@@ -54,13 +54,14 @@ In a collaborative-filtering system there are only three columns that matter to 
 
 [ML Notebook](https://colab.research.google.com/drive/1kAlvwwJnGcdCAJD8oFokT3gtJF2UnyZP)
 
-I chose to work with the Python [surprise library scikit] (http://surpriselib.com/) for training my recommendation system. I tested all four different filtered datasets on the 11 different alogorithms provided, and everytime the Single Value Decompositin++ (SVD++) algorithm performed the best. It should be noted that this algorithm, although the most accurate is also the most computationally expensive, and that should be taken into account if this were to go into production.
+I chose to work with the Python [surprise library scikit](http://surpriselib.com/) for training my recommendation system. I tested all four different filtered datasets on the 11 different alogorithms provided, and everytime the Single Value Decompositin++ (SVD++) algorithm performed the best. It should be noted that this algorithm, although the most accurate is also the most computationally expensive, and that should be taken into account if this were to go into production.
 
-![](./6_README_files/prediction.png)
+![](./6_README_files/algo.png)
 
 **NOTE:** I choose RMSE as the accuracy metric over mean absolute error(MAE) because the errors are squared before they are averaged which gives the RMSE a higher weight to large errors. Thus, the RMSE is useful when large errors are undesirable. The smaller the RMSE, the more accurate the prediction because the RMSE takes the square root of the residual errors of the line of best fit.
 
 **WINNER: SVD++ Algorithm**
+
 This algorithm is an improved version of the SVD algorithm that Simon Funk popularized in the million dollar Netflix competition that also takes into account implicit ratings (yj). Using stochastic gradient descent (SGD), parameters are learned using the regularized squared error objective.
 
 ![](./6_README_files/forumla.png)
