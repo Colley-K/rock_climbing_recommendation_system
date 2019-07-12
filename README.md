@@ -52,6 +52,15 @@ In a collaborative-filtering system there are only three columns that matter to 
 ## 5. Filtering & Coldstart Threshold
 
 
+## 6. Machine Learning
+
+## 7. Predictions
+
+## 8. Future Improvements
+
+## 9. Credits
+
+
 
 
 
