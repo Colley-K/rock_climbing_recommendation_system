@@ -23,13 +23,21 @@ There are three main types of recommenders used in practice today:
 
 3. **Hybrid Method:** Leverages both content & collaborative basded filtering. Typically when a new user comes into the recommender, the content-bsaed recommendation takes place. Then after interacting with the items a couple of times, the collaborative/ user based recommendation system will be utilized.
 
-I choose to work with a **user-based collaborative filtering system**. This made the most sense because half of the 4 million user-entered climbs had an explicit rating of how many stars the user would rate the climb. Unfortuntely, the data did not have very detailed "item features". Every rock climbing route had an area, a difficulty grade, and a style of climbing (roped or none). This would not have been enough data to provide an accurate content-based recommendations. In the future, I would love to experiment using a hybrid system to help solve the problem of the cold-start-threshold.
+I choose to work with a **user-based collaborative filtering system**. 
+
+This made the most sense because half of the 4 million user-entered climbs had an explicit rating of how many stars the user would rate the climb. Unfortuntely, the data did not have very detailed "item features". Every rock climbing route had an area, a difficulty grade, and a style of climbing (roped or none). This would not have been enough data to provide an accurate content-based recommendations. In the future, I would love to experiment using a hybrid system to help solve the problem of the cold-start-threshold.
 
 ![](./6_README_files/matrix_example.png)
 
 ## 3. Data Cleaning 
 
 [Data Cleaning Report](https://drive.google.com/open?id=195wcooDtT2XhfpRXREWmLovm8XZPNymy)
+
+## 4. EDA
+
+Star Distributions:
+
+
 
 
 
