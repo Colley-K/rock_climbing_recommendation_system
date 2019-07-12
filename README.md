@@ -3,4 +3,4 @@
 
 Creating a rock climbing recommendation system for 8a.nu international rock climbing website
 
-![cover_photo](./6. README_files/cover_photo.png)
+![cover_photo](./6_README_files/cover_photo.png)
