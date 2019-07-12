@@ -37,7 +37,7 @@ I choose to work with a User-based collaborative filtering system. This made the
 
 In a collaborative-filtering system there are only three columns that matter to apply the machine learning algorithms: the user, the item, and the explicit rating (see the example matrix above). I also had to clean & normalize all the reference information (location, difficulty grade, etc) to the route so that my user could get a userful and informative recommendation.
 
-* **Problem 1:** This dataset is all user-entered information. There are a couple drop down options, but for the most part the user is able to completely make-up, or list something incorrectly. **Solution:** after normalizing & cleaning all the columns, I created a three-tier groupby system that I could then take the mode of each entry and fill in the column with that mode. For example: a route listed 12 times had the country Greece associated with it 11 times, but one person listed it in the USA. By imputing multiple columns with the mode (after the three tiered groupby), I was able to increase the accuracy of my dataset
+* **Problem 1:** This dataset is all user-entered information. There are a couple drop down options, but for the most part the user is able to completely make-up, or list something incorrectly. **Solution:** after normalizing & cleaning all the columns, I created a three-tier groupby system that I could then take the mode of each entry and fill in the column with that mode. For example: a route listed 12 times had the country Greece associated with it 11 times, but one person incorrectly listed it located in the USA. By grouping together three other indicator columns and then computing the mode of the country, I was able to catch and change some of the user-entered errors and increase the accuracy of my dataset.
 
 * **Problem 2:** Being this is an international rock climbing website, the names of the rock climbing routes were differing based on if the user enters accent marks or not. **Solution:** normalize all names to the ascii standards. 
 
@@ -63,9 +63,9 @@ I chose to work with the Python [surprise library scikit](http://surpriselib.com
 
 **WINNER: SVD++ Algorithm**
 
-This algorithm is an improved version of the SVD algorithm that Simon Funk popularized in the million dollar Netflix competition that also takes into account implicit ratings (yj). Using stochastic gradient descent (SGD), parameters are learned using the regularized squared error objective.
-
 ![](./6_README_files/forumla.png)
+
+This algorithm is an improved version of the SVD algorithm that Simon Funk popularized in the million dollar Netflix competition that also takes into account implicit ratings (*yj*). Using stochastic gradient descent (SGD), parameters are learned using the regularized squared error objective.
 
 ## 6. Which Dataset to choose?
 
@@ -84,10 +84,10 @@ After choosing the SVD++ algorithm, I tested the accuracy of all four different 
 
 ![](./6_README_files/20user_thresh.png)
 
-* Increasing the user threshold to 5 would increase the RMSE by .005 & would loose approximately 40% of the data.
-* Increasing the user threshold to 13 would increase the RMSE by .0075 & would loose approximately 60% of the data
-* If there were a larger increase in the RMSE (>= .01) I would trade my users data for this improvement. However, these improvements are too minuscule to give up 40%-60% of my data to train on. Instead, I vote to keep some of these outliers to help the model train, and will focus on fine tuning my parameters using gridsearch to improve the RMSE
-* *It is my hypothesis that the initial filtering of the routes is what affected the RMSE of the users* 
+>* Increasing the user threshold to 5 would increase the RMSE by .005 & would loose approximately 40% of the data.
+>* Increasing the user threshold to 13 would increase the RMSE by .0075 & would loose approximately 60% of the data
+>* If there were a larger increase in the RMSE (>= .01) I would trade my users data for this improvement. However, these improvements are too minuscule to give up 40%-60% of my data to train on. Instead, I vote to keep some of these outliers to help the model train, and will focus on fine tuning my parameters using gridsearch to improve the RMSE
+***It is my hypothesis that the initial filtering of the routes is what affected the RMSE of the users*** 
 
 ## 7. Predictions
 
