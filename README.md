@@ -5,7 +5,9 @@
 
 ## 1. Data
 
-[8a.nu](https://www.8a.nu/) is one the world’s largest international rock climbing websites. With over 4 million entries of climbs and ratings, this Kaggle webscraping project is a sufficient size to develop a good predictor model. To view the original Kaggle dataset, or the import report, click on the links below:
+8a.nu is one the world’s largest international rock climbing websites. With over 4 million entries of climbs and ratings, this Kaggle webscraping project is a sufficient size to develop a good predictor model. To view the original Kaggle dataset, or the import report, click on the links below:
+
+> * [8a.nu website](https://www.8a.nu/)
 
 > * [Kaggle Dataset](https://www.kaggle.com/dcohen21/8anu-climbing-logbook)
 
