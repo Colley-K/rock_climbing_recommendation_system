@@ -43,11 +43,17 @@ In a collaborative-filtering system there are only three columns that matter to 
 
 ## 4. EDA
 
-The star-rating distributions all checked out to be normal. It is very common with explicit ratings to see a diminished number of low ratings.
+[EDA Report](https://colab.research.google.com/drive/14AKVsyXy7yJSxBjmEBFyz7kEX7e9ioM_)
+
+* The star-rating distributions all checked out to be normal. It is very common with explicit ratings to see a diminished number of low ratings.
 
 ![](./6_README_files/star_count.png)
 
+* This graph shows us the number of times users generally rate routes, and how many times routes get rated: 
 
+![](./6_README_files/user_count.png)
+
+![](./6_README_files/route_count.png)
 
 
 
