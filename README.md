@@ -47,13 +47,11 @@ In a collaborative-filtering system there are only three columns that matter to 
 
 * The star-rating distributions all checked out to be normal. It is very common with explicit ratings to see a diminished number of low ratings.
 
-![](./star_counts.png)
+![](./6_README_files/star_counts.png)
 
-* This graph shows us the number of times users generally rate routes, and how many times routes get rated: 
+## 5. Filtering & Coldstart Threshold
 
-![](./6_README_files/user_count.png)
 
-![](./6_README_files/route_count.png)
 
 
 
