@@ -18,10 +18,12 @@
 There are three main types of recommenders used in practice today:
 
 1. **Content-based filter:** Recommending future items to the user that have similar innate features with previously "liked" items. Basically, content-based relies on similarities between features of the items & needs good item profiles to function properly.
+
 2. **Collaborative-based filter:** Recommending products based on a similar user that has already rated the product. Collaborative filtering relies on information from similar users, and it is important to have a large explicit user rating  base (doesn't work well for new customer bases).
+
 3. **Hybrid Method:** Leverages both content & collaborative basded filtering. Typically when a new user comes into the recommender, the content-bsaed recommendation takes place. Then after interacting with the items a couple of times, the collaborative/ user based recommendation system will be utilized.
 
-It doesn’t rely of features of the item, but the preferences from other users. Similar users survey needs to be done.
+I choose to work with a **user-based collaborative filtering system**. This made the most sense because half of the 4 million user-entered climbs had an explicit rating of how many stars the user would rate the climb. Unfortuntely, the data did not have very detailed "item features". Every rock climbing route had an area, a difficulty grade, and a style of climbing (roped or none). This would not have been enough data to provide an accurate content-based recommendations. In the future, I would love to experiment using a hybrid system to help solve the problem of the cold-start-threshold.
 
 ![](./6_README_files/matrix_example.png)
 
