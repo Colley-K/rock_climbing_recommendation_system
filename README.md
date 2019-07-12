@@ -64,17 +64,15 @@ This algorithm is an improved version of the SVD algorithm that Simon Funk popul
 
 ![](./6_README_files/formula.png)
 
-
 ## 6. Which Dataset to choose?
 
-After choosing the SVD++ algorithm, I tested the accuracy of all four different filtered datasets. The datset that filtered out any route names that occured less than 6 times performed the most accurate predictions.
+After choosing the SVD++ algorithm, I tested the accuracy of all four different filtered datasets. As mentioned above, the datset that filtered out any route names that occured less than 6 times performed the most accurate predictions.
 
-* All of the dataframes displayed discrepency in the 1 star ratings where there was less data to start with (this is to be expected). Also, the one star ratings are not imperative to this project's goal. It is more important that the 1 star ratings are different enough to be filtered out of the top ten routes recommended to users. 
+* All of the dataframes displayed discrepencies with the 1 star ratings(This is to be expected due to the inherent skewed positive ratings). Also, the one star ratings are not imperative to this project's goal. It is more important that the 1 star ratings are different enough to be filtered out of the top ten routes recommended to users. 
 * Notice the 3-star rating has a fat bulge at the top of the "violin" which indicates its predicting 3-star ratings for some of the true 3-star routes. This was not as promenant in the other dataframes
 * The 1-star rating also has a fatter tail than the other datasets displayed
 
 ![](./6_README_files/accuracy.png)
-
 
 ## 7. Coldstart Threshold
 
