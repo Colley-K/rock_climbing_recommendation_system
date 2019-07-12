@@ -49,10 +49,43 @@ In a collaborative-filtering system there are only three columns that matter to 
 
 ![](./6_README_files/star_counts.png)
 
-## 5. Filtering & Coldstart Threshold
+## 5. Algorithms & Machine Learning
+
+[ML Notebook](https://colab.research.google.com/drive/1kAlvwwJnGcdCAJD8oFokT3gtJF2UnyZP)
+
+I chose to work with the Python [surprise library scikit] (http://surpriselib.com/) for training my recommendation system. I tested all four different filtered datasets on the 11 different alogorithms provided, and everytime the Single Value Decompositin++ (SVD++) algorithm performed the best. It should be noted that this algorithm, although the most accurate is also the most computationally expensive, and that should be taken into account if this were to go into production.
+
+![](./6_README_files/prediction.png)
+
+**NOTE:** I choose RMSE as the accuracy metric over mean absolute error(MAE) because since the errors are squared before they are averaged, the RMSE gives a relatively high weight to large errors. Thus, the RMSE is useful when large errors are undesirable. The smaller the RMSE, the more accurate the prediction because RMSE takes the square root of the residual errors of the line of best fit.
+
+**WINNER: SVD++ Algorithm**: this is an improved version of the SVD alogorithm that Simon Funk popularized in the million dollar Netflix competition which also takes into account implicit ratings (yj). Using stochastic gradient descent (SGD), parameters are learned using the regularized squared error objective.
+
+![](./6_README_files/formula.png)
 
 
-## 6. Machine Learning
+## 6. Which Dataset to choose?
+
+After choosing the SVD++ algorithm, I tested the accuracy of all four different filtered datasets. The datset that filtered out any route names that occured less than 6 times performed the most accurate predictions.
+
+* All of the dataframes displayed discrepency in the 1 star ratings where there was less data to start with (this is to be expected). Also, the one star ratings are not imperative to this project's goal. It is more important that the 1 star ratings are different enough to be filtered out of the top ten routes recommended to users. 
+* Notice the 3-star rating has a fat bulge at the top of the "violin" which indicates its predicting 3-star ratings for some of the true 3-star routes. This was not as promenant in the other dataframes
+* The 1-star rating also has a fatter tail than the other datasets displayed
+
+![](./6_README_files/accuracy.png)
+
+
+## 7. Coldstart Threshold
+
+**Coldstart Threshold**: There is a problem when only using collaborative based filtering: *what to recommend to new users with no, or very little prior data?* Remember, we already set our cold start threshold for the routes by choosing the dataset that filtered out any route occuring less than 6 times. Now, let investigate of where to put the threshold for users.
+
+![](./6_README_files/20user_thresh.png)
+
+* Increasing the user threshold to 5 would increase the RMSE by .005 & would loose approximately 40% of the data.
+* Increasing the user threshold to 13 would increase the RMSE by .0075 & would loose approximately 60% of the data
+* If there were a larger increase in the RMSE (>= .01) I would trade my users data for this improvement. However, these improvements are too minuscule to give up 40%-60% of my data to train on. Instead, I will keep some of these outliers to help the model train, and will focus on fine tuning my parameters using gridsearch to improve the RMSE
+
+*It is my hypothesis that the initial filtering of the routes is what affected the RMSE* 
 
 ## 7. Predictions
 
