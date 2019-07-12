@@ -63,11 +63,13 @@ I chose to work with the Python [surprise library scikit](http://surpriselib.com
 
 **WINNER: SVD++ Algorithm**
 
-![](./6_README_files/forumla.png)
-
 This algorithm is an improved version of the SVD algorithm that Simon Funk popularized in the million dollar Netflix competition that also takes into account implicit ratings (*yj*). Using stochastic gradient descent (SGD), parameters are learned using the regularized squared error objective.
 
+![](./6_README_files/forumla.png)
+
 ## 6. Which Dataset to choose?
+
+[More Details about this Process...](https://colab.research.google.com/drive/1kAlvwwJnGcdCAJD8oFokT3gtJF2UnyZP)
 
 After choosing the SVD++ algorithm, I tested the accuracy of all four different filtered datasets. The datset which filtered out any route names occurring less than 6 times performed the most accurate predictions. Thus, it was chosen to be the dataset I trained on.
 
@@ -79,6 +81,7 @@ After choosing the SVD++ algorithm, I tested the accuracy of all four different 
 ![](./6_README_files/accuracy.png)
 
 ## 7. Coldstart Threshold
+[More Details about this Process...](https://colab.research.google.com/drive/1kAlvwwJnGcdCAJD8oFokT3gtJF2UnyZP)
 
 **Coldstart Threshold**: There is a problem when only using collaborative based filtering: *what to recommend to new users with very little or no prior data?* Remember, we already set our cold start threshold for the routes by choosing the dataset that filtered out any route occuring less than 6 times. Now, let investigate where to put the threshold for users.
 
@@ -87,7 +90,8 @@ After choosing the SVD++ algorithm, I tested the accuracy of all four different 
 >* Increasing the user threshold to 5 would increase the RMSE by .005 & would loose approximately 40% of the data.
 >* Increasing the user threshold to 13 would increase the RMSE by .0075 & would loose approximately 60% of the data
 >* If there were a larger increase in the RMSE (>= .01) I would trade my users data for this improvement. However, these improvements are too minuscule to give up 40%-60% of my data to train on. Instead, I vote to keep some of these outliers to help the model train, and will focus on fine tuning my parameters using gridsearch to improve the RMSE
-***It is my hypothesis that the initial filtering of the routes is what affected the RMSE of the users*** 
+
+*It is my hypothesis that the initial filtering of the routes is what affected the RMSE of the users* 
 
 ## 7. Predictions
 
