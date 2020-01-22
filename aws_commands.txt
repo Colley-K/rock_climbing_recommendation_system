@@ -1,0 +1,13 @@
+#All my AWS commands
+
+~ ❯ which aws                                                                                       anaconda3 10:05:54
+/Users/kristencolley/Library/Python/3.7/bin/aws
+
+aws configure
+
+~ ❯ cat .aws/credentials                                                                   2m 53s   anaconda3 10:23:20
+[default]
+aws_access_key_id = AKIAVVZTV4GBFWU2VJB5
+aws_secret_access_key = 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
+
+aws codecommit list-repositories
